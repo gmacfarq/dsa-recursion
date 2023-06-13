@@ -92,6 +92,7 @@ function gatherStrings(obj) {
   }
 
   _getStrings(obj);
+  console.log("hello");
   return out;
 
 }
@@ -102,7 +103,7 @@ function gatherStrings(obj) {
  * return true if val is in array, false if not present). */
 
 function binarySearch(arr, val) {
-  
+
 }
 
 
