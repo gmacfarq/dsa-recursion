@@ -22,10 +22,10 @@ function longest(words) {
 function everyOther(str) {
   if (str.length === 0) return "";
 
-  if(str.length%2 === 1){
-    return(str.charAt(0) + everyOther(str.slice(1)))
+  if (str.length % 2 === 1) {
+    return (str.charAt(0) + everyOther(str.slice(1)));
   }
-  else{
+  else {
     return ("" + everyOther(str.slice(1)));
   }
 }
@@ -33,9 +33,9 @@ function everyOther(str) {
 /** find: return boolean depending on if val exists in array or not. */
 
 function find(arr, val) {
-  if(arr.length === 0) return false;
+  if (arr.length === 0) return false;
 
-  if(arr[0] === val) return true;
+  if (arr[0] === val) return true;
 
   return find(arr.slice(1), val);
 }
@@ -44,14 +44,14 @@ function find(arr, val) {
 
 function isPalindrome(str) {
 
-    //base
-    if (str.length <= 1) return true
+  //base
+  if (str.length <= 1) return true;
 
-    //catch
-    if (str[0] !== str[str.length - 1]) return false
+  //catch
+  if (str[0] !== str[str.length - 1]) return false;
 
-    //recursive
-    return isPalindrome(str.slice(1, str.length-1))
+  //recursive
+  return isPalindrome(str.slice(1, str.length - 1));
 
 
 }
@@ -59,9 +59,9 @@ function isPalindrome(str) {
 /** revString: return a copy of a string, but in reverse. */
 
 function revString(str) {
-    if (str.length === 0) return "";
+  if (str.length === 0) return "";
 
-    return(revString(str.slice(1)) + str.charAt(0))
+  return (revString(str.slice(1)) + str.charAt(0));
 
 }
 
@@ -69,19 +69,30 @@ function revString(str) {
 
 function findIndex(arr, val) {
 
-    let counter = 0;
+  function _getidx(val, i = 0) {
+    if (i === arr.length) return -1;
+    if (arr[i] === val) return i;
+    return _getidx(val, i + 1);
+  }
 
-    if(arr.length === 0) return -1;
-
-    if(arr[0] === val) return 0;
-
-    return 1 + findIndex(arr.slice(1), val);
-
+  return _getidx(val);
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
 function gatherStrings(obj) {
+  let out = [];
+
+  function _getStrings(obj) {
+    const keys = Object.keys(obj);
+    for (let key of keys) {
+      if (typeof obj[key] === "object") _getStrings(obj[key]);
+      if (typeof obj[key] === "string") out.push(obj[key]);
+    }
+  }
+
+  _getStrings(obj);
+  return out;
 
 }
 
@@ -91,7 +102,7 @@ function gatherStrings(obj) {
  * return true if val is in array, false if not present). */
 
 function binarySearch(arr, val) {
-
+  
 }
 
 
