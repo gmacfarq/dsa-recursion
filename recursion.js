@@ -92,7 +92,6 @@ function gatherStrings(obj) {
   }
 
   _getStrings(obj);
-  console.log("hello");
   return out;
 
 }
