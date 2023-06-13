@@ -37,24 +37,45 @@ function find(arr, val) {
 
   if(arr[0] === val) return true;
 
-  return find(arr.splice(1), val);
+  return find(arr.slice(1), val);
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
 function isPalindrome(str) {
 
+    //base
+    if (str.length <= 1) return true
+
+    //catch
+    if (str[0] !== str[str.length - 1]) return false
+
+    //recursive
+    return isPalindrome(str.slice(1, str.length-1))
+
+
 }
 
 /** revString: return a copy of a string, but in reverse. */
 
 function revString(str) {
+    if (str.length === 0) return "";
+
+    return(revString(str.slice(1)) + str.charAt(0))
 
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
 function findIndex(arr, val) {
+
+    let counter = 0;
+
+    if(arr.length === 0) return -1;
+
+    if(arr[0] === val) return 0;
+
+    return 1 + findIndex(arr.slice(1), val);
 
 }
 
