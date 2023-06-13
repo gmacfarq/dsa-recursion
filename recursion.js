@@ -102,16 +102,16 @@ function gatherStrings(obj) {
  * return true if val is in array, false if not present). */
 
 function binarySearch(arr, val, left = 0, right = arr.length) {
-    if (left === right) return false;
-    let middle = Math.floor((left + right) / 2);
-    console.log("middle", middle);
-    if (arr[middle] > val){
-        return binarySearch(arr, val, left, middle);
-    }
-    if (arr[middle] === val) return true;
-    if (arr[middle] < val){
-        return binarySearch(arr, val, middle + 1, right);
-    }
+  if (left === right) return false;
+  let middle = Math.floor((left + right) / 2);
+  
+  if (arr[middle] > val) {
+    return binarySearch(arr, val, left, middle);
+  }
+  if (arr[middle] === val) return true;
+  if (arr[middle] < val) {
+    return binarySearch(arr, val, middle + 1, right);
+  }
 }
 
 
@@ -119,16 +119,16 @@ function binarySearch(arr, val, left = 0, right = arr.length) {
  * return the index of that value (or -1 if val is not present). */
 
 function binarySearchIndex(arr, val, left = 0, right = arr.length) {
-    if (left === right) return -1;
-    let middle = Math.floor((left + right) / 2);
-    console.log("middle", middle);
-    if (arr[middle] > val){
-        return binarySearchIndex(arr, val, left, middle);
-    }
-    if (arr[middle] === val) return middle;
-    if (arr[middle] < val){
-        return binarySearchIndex(arr, val, middle + 1, right);
-    }
+  if (left === right) return -1;
+  let middle = Math.floor((left + right) / 2);
+
+  if (arr[middle] > val) {
+    return binarySearchIndex(arr, val, left, middle);
+  }
+  if (arr[middle] === val) return middle;
+  if (arr[middle] < val) {
+    return binarySearchIndex(arr, val, middle + 1, right);
+  }
 }
 
 // you might find the above two problems easier if you change the function signature to:
